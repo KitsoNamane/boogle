@@ -1,7 +1,19 @@
 {% extends "home.html" %}
+{% block menu %}
+{% endblock %}
+{% block image %}
+{% endblock %}
 {% block search %}
   {{ super() }}
 {% endblock %}
-{% block body %}
-  <p>{{ results }}</p>
+{% block content %}
+<center>
+    <dl>
+    {% for key, value in results.items() %}
+        <a href="{{ url_for('results_textfile', file_name=key ) }}">{{ key|e }}</a>
+        <dt> {{ value[0]|e }}</dt>
+        <dt> {{ value[1]|e }}</dt>
+    {% endfor %}
+    </dl>
+</center>
 {% endblock %}

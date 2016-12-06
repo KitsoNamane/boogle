@@ -1,0 +1,19 @@
+#ifndef _logfind_h
+#define _logfind_h
+
+// just opens logfiles for reading
+void match_string(char *a_word);
+
+// matches an input string in a line  in a logfind
+// and returns true if match is found
+int open_logfile(char *filename);
+
+// iterates over a file stream calling the match_string function
+// printing out the line from a logfile to stdout if a match if found
+void search_string(int args, char *word_list[]);
+
+void close_file();
+
+// get the list of current logfiles in a ./logfind
+void get_logfiles();
+#endif

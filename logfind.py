@@ -12,8 +12,7 @@ def match_string(word, line):
 
 def search_string(word_list):
     word_list = word_list.split()
-    print(word_list)
-    search_in_files = glob("*.h")
+    search_in_files = glob("static/text/*.txt")
     result = dict()
     for a_file in search_in_files:
         with open(a_file) as search_in_file:

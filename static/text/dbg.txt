@@ -1,0 +1,32 @@
+#ifndef _dbg_h
+#define _dbg_h
+
+#include <stdio.h>
+#include <errno.h>
+#include <strings.h>
+
+#include "colors.h" // fancy color output
+
+#ifdef NDEBUG
+#define debug(M, ...)
+#else
+#define debug(M, ...) fprintf(stderr, "%sDEBUG %s:%s:%d%s: " M "\n",\
+get_color(YELLOW), __FILE__, __func__, __LINE__, get_color(DEFAULT), ##__VA_ARGS__)
+#endif
+
+#define clean_errno() (errno == 0 ? "None" : strerror(errno))
+
+#define log_err(M, ...) fprintf(stderr, "%s[ERROR] (%s:%s:%d errno: %s)%s " M "\n",\
+get_color(RED), __FILE__, __func__, __LINE__, clean_errno(), get_color(DEFAULT), ##__VA_ARGS__)
+#define log_warn(M, ...) fprintf(stderr, "%s[WARN] (%s:%s:%d errno: %s)%s " M "\n",\
+get_color(PURPLE), __FILE__, __func__, __LINE__, clean_errno(), get_color(DEFAULT), ##__VA_ARGS__)
+#define log_info(M, ...) fprintf(stderr, "%s[INFO] (%s:%s:%d)%s " M "\n",\
+get_color(GREEN), __FILE__, __func__,__LINE__, get_color(DEFAULT), ##__VA_ARGS__)
+
+#define check(A, M, ...) if(!(A)) { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+#define sentinel(M, ...) { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#define check_mem(A) check((A), "%sOut of memory.%s", get_color(RED), get_color(DEFAULT))
+#define check_debug(A, M, ...) if(!(A)) { debug(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#endif

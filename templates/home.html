@@ -1,18 +1,45 @@
 <!doctype html>
 
-<html>
+<html lang="en">
 
 <head>
-  <title>boogle</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title> search engine</title>
+  <link href="{{ url_for('static', filename='css/MenuBarHorizontal.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-  <nav class="main-nav">
-  </nav>
-  <main class="main-content">
-    {% block search %}<p>searching</p>{% endblock %}
-    {% block body %}{% endblock %}
-  </main>
+  {% block menu %}
+    <center>
+    <div id="menu">
+      <ul id="MenuBar1" class="MenuBarHorizontal">
+        <li><a href="/books/index.html">Books</a></li>
+        <li><a href="/list.php">Add Url</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </center>
+  {% endblock %}
+
+  {% block image %}
+    <center>
+      <img src="{{ url_for('static', filename='img/INVERTED.jpg') }}" width="817" height="210">
+    </center>
+  {% endblock %}
+
+  {% block search %}
+    <form action="" method='post'>
+      <center> 
+        <p>&nbsp;</p>
+        <p>
+          <input name='search' type='text' class="footer1" size='50'></font>
+        </p>
+        <input name='submit' type='submit' class="footer1" value='Search Here'>
+      </center>
+    </form>
+  {% endblock %}
+  {% block content %} {% endblock %}
 </body>
 
 </html>

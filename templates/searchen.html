@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title> search engine</title>
+  <link href="{{ url_for('static', filename='MenuBarHorizontal.css') }}" rel="stylesheet" type="text/css">
+  </head>
+<body>
+  <div id="menu">
+    <ul id="MenuBar1" class="MenuBarHorizontal">
+      <li><a href="/books/index.html">Books</a></li>
+      <li><a href="/list.php">Add Url</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+  <p><center>
+    <p class="menuhead"><br>
+    </p>
+    <br>
+    </center>
+</div>
+<center>
+  <img src="{{ url_for('static', filename='pic.gif') }}" width="817" height="210">
+</center>
+<form action="/search.php" method='GET'>
+  <center> 
+  <p><br>
+    </p>
+  <p>&nbsp;</p>
+  <p>
+    <input name='search' type='text' class="footer1" size='50'></font></p>
+  <p>&nbsp;</p>
+  </center>
+            
+
+<p class="footer1"><center>
+  <input name='submit' type='submit' class="footer1" value='Search Here'>
+  </center>
+</p>
+</form>
+<p class="footer1">&nbsp;</p>
+<p class="footer1">&nbsp;</p>
+<p class="footer1">&nbsp;</p>
+<p class="footer1">&nbsp;</p>
+<p class="footer1">&nbsp;</p>
+<p class="footer1">Baba Khao </p>
+
+<p class="footer1">
+<center>
+<!-- Place this tag where you want the +1 button to render -->
+<g:plusone size="tall" annotation="i0nline"></g:plusone>
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</center></p>
+<script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
+</body>
+</html>
